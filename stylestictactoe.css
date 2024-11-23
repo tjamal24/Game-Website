@@ -1,0 +1,148 @@
+/* General Layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f8ff;
+    color: #333;
+    font-size: 1rem; /* Base font size */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+    height: 100vh;
+    flex-direction: column;
+    overflow-y: auto; /* Allow scrolling */
+}
+
+/* Container Styling */
+.container {
+    width: 90%; /* 90% of the viewport width */
+    max-width: 30rem; /* 480px maximum width */
+    margin-top: 2rem; /* Space from the top */
+    text-align: center;
+}
+
+/* Header Styling */
+header h1 {
+    font-size: 2rem; /* Adjusted font size to ensure visibility */
+    color: #2a2a2a;
+    margin-bottom: 1rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Game Board Styling (Tic-Tac-Toe) */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    grid-template-rows: repeat(3, 1fr); /* 3 equal-height rows */
+    gap: 0.5rem; /* Small gap between cells */
+    width: 90%; /* Board width as percentage of container */
+    max-width: 400px; /* Max width of the board */
+    height: 400px; /* Set height explicitly to ensure it's visible */
+    margin: 2rem auto; /* Center board on the screen */
+    position: relative;
+    background-color: #f0f8ff; /* Match the background color */
+}
+
+/* Cell Styling */
+.cell {
+    width: 100%; /* Full width of each grid cell */
+    height: 100%; /* Full height of each grid cell */
+    background-color: #d1c4e9; /* Light purple background for the cells */
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem; /* Font size for X/O */
+    color: #333; /* Dark text for X/O */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth background transition */
+    box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    
+    /* Thin black border between the boxes */
+    border: 2px solid black; /* Thin black border between cells */
+}
+
+.cell.taken {
+    background-color: #c3b1e5; /* Change color after move */
+    pointer-events: none; /* Disable interaction once a cell is taken */
+}
+
+/* Timer and Moves Count Styling */
+.game-info {
+    margin-top: 2rem;
+}
+
+.game-info p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+/* Reset Button Styling */
+#resetButton {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 1rem 2rem; /* Scales with root font size */
+    margin-top: 2rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+#resetButton:hover {
+    background-color: #e64a19;
+}
+
+/* Winning Modal Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 2rem;
+    border: 1px solid #888;
+    width: 80%; /* 80% of the screen width */
+    max-width: 20rem; /* Limit the width */
+    text-align: center; /* Center the text inside */
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    font-size: 2rem;
+    font-weight: bold;
+    float: right;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+footer {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: #777;
+}
