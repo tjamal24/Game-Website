@@ -13,25 +13,34 @@ body {
     color: #333;
     font-size: 1rem; /* Base font size */
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Align to the top */
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    overflow: hidden; /* Prevent scrolling */
+    padding: 0; /* Ensure no unwanted padding */
 }
 
 /* Container Styling */
 .container {
     width: 90%; /* 90% of the viewport width */
     max-width: 75rem; /* 1200px in rem */
-    margin: 2rem; /* Space around container */
+    margin: 2rem 0; /* Adjusted margin to prevent overflow */
     text-align: center;
+    overflow: auto; /* Allow scrolling inside the container if needed */
 }
 
 /* Header Styling */
+header {
+    padding: 1rem; /* Padding for better spacing */
+    width: 100%; /* Ensure header takes full width */
+}
+
 header h1 {
     font-size: 3rem; /* Scales with the root font size */
     color: #2a2a2a;
     margin-bottom: 1rem;
+    word-wrap: break-word; /* Handle long text gracefully */
 }
 
 header p {
@@ -43,15 +52,18 @@ header p {
 .game-board {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
-    gap: 1%; /* Reduced gap between cards */
+    gap: 10px; /* Space between cards */
     margin-top: 2rem;
-    justify-content: center;
+    justify-items: center; /* Center the items (cards) horizontally */
+    max-width: 400px; /* Max width to fit in the center */
+    margin-left: auto; /* Center the grid horizontally */
+    margin-right: auto; /* Center the grid horizontally */
 }
 
 /* Card Styling */
 .card {
-    width: 20%; /* Adjusted to fit within grid */
-    padding-bottom: 20%; /* Maintain square aspect ratio */
+    width: 100px; /* Fixed size for the card */
+    height: 100px; /* Fixed height for the card */
     background-color: #d1c4e9; /* Light purple background */
     border-radius: 0.5rem;
     display: flex;
@@ -61,15 +73,19 @@ header p {
     color: transparent; /* Initially hide the content */
     cursor: pointer;
     position: relative;
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 5px; /* Adjust to control card spacing */
 }
 
+/* Flipped Card */
 .card.flipped {
     color: white; /* Reveal content on flip */
+    background-color: #e0dbeb; /* Change background on flip */
 }
 
+/* Matched Card */
 .card.matched {
-    background-color: #00c853;
+    background-color: #51b76f;
     pointer-events: none; /* Disable interaction */
 }
 
