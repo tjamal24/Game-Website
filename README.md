@@ -15,7 +15,7 @@ The central hub of our website provides an introduction to the project and easy 
 Each member of our team has contributed unique games:
 
 1. **Memory Cards**: Match pairs of cards to win!
-2. **Tic Tac Toe**: Challenge your friends or an AI opponent.
+2. **Tic Tac Toe**: Challenge your friends.
 3. **Tetris**: Classic block-stacking game with a modern twist.
 
 ---
