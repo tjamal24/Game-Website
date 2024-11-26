@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guesser Game</title>
+    <link rel="stylesheet" href="stylesnumberguesser.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Number Guesser Game</h1>
+            <p>Guess a number between 0 and 1000. You have 10 attempts!</p>
+        </header>
+        <div class="game-board">
+            <input type="number" id="guessInput" min="0" max="1000" placeholder="Enter your guess" />
+            <button id="guessButton">Submit Guess</button>
+            <p id="message"></p>
+            <p class="game-info">Attempts left: <span id="attempts">10</span></p>
+            <button id="resetButton">Reset Game</button>
+        </div>
+    </div>
+    <script src="numberguesser.js"></script>
+</body>
+</html>
