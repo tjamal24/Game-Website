@@ -1,4 +1,4 @@
-const columns = 7;
+const columns = 7; 
 const rows = 6;
 let currentPlayer = 'red';
 const board = Array.from({ length: rows }, () => Array(columns).fill(null));
@@ -25,19 +25,19 @@ function createBoard() {
 
 // Handle dropping discs
 function dropDisc(event) {
-    const col = event.target.dataset.col;
-    if (checkGameOver()) return; // If game over, prevent any more moves.
+    const col = parseInt(event.target.dataset.col);  // Ensure column index is a number
+    if (checkGameOver()) return;  // Prevent more moves if the game is over
 
     for (let row = rows - 1; row >= 0; row--) {
-        if (!board[row][col]) {
+        if (!board[row][col]) {  // Find the lowest empty row in the column
             board[row][col] = currentPlayer;
             const cell = document.querySelector(`[data-row='${row}'][data-col='${col}']`);
             cell.classList.add(currentPlayer);
             if (checkWinner(row, col)) {
-                showWinner(currentPlayer); // Display the win message
-                return;  // Stop the game
+                showWinner(currentPlayer);
+                return;
             }
-            currentPlayer = currentPlayer === 'red' ? 'yellow' : 'red';
+            currentPlayer = currentPlayer === 'red' ? 'yellow' : 'red';  // Switch players
             return;
         }
     }
@@ -53,47 +53,42 @@ function showWinner(player) {
 // Check for a winner
 function checkWinner(row, col) {
     const directions = [
-        { dr: 0, dc: 1 },  // horizontal
-        { dr: 1, dc: 0 },  // vertical
-        { dr: 1, dc: 1 },  // diagonal down-right
-        { dr: 1, dc: -1 }  // diagonal down-left
+        { dr: 0, dc: 1 },  // Horizontal
+        { dr: 1, dc: 0 },  // Vertical
+        { dr: 1, dc: 1 },  // Diagonal down-right
+        { dr: 1, dc: -1 }  // Diagonal down-left
     ];
 
-    // Check each direction for a possible winner
     for (const { dr, dc } of directions) {
-        let count = 1; // Start counting from the current disc
-        let i = 1;
+        let count = 1;  // Current disc counts as 1
+        count += countInDirection(row, col, dr, dc);
+        count += countInDirection(row, col, -dr, -dc);
 
-        // Check in the positive direction (e.g., right for horizontal, down-right for diagonal)
-        while (board[row + dr * i]?.[col + dc * i] === currentPlayer) {
-            count++;
-            i++;
-        }
-
-        // Check in the negative direction (e.g., left for horizontal, up-left for diagonal)
-        i = 1;
-        while (board[row - dr * i]?.[col - dc * i] === currentPlayer) {
-            count++;
-            i++;
-        }
-
-        // If we have 4 or more discs in a row, return true
-        if (count >= 4) {
-            return true;
-        }
+        if (count >= 4) return true;
     }
     return false;
+}
+
+// Count consecutive discs in a direction
+function countInDirection(row, col, dr, dc) {
+    let count = 0;
+    let r = row + dr;
+    let c = col + dc;
+
+    while (r >= 0 && r < rows && c >= 0 && c < columns && board[r][c] === currentPlayer) {
+        count++;
+        r += dr;
+        c += dc;
+    }
+    return count;
 }
 
 // Check if the game is over
 function checkGameOver() {
-    // If there's a winner, the game is over
-    if (congratsMessage.classList.contains('active')) {
-        return true;
-    }
-    return false;
+    return congratsMessage.classList.contains('active');
 }
 
+// Reset the game board
 resetButton.addEventListener('click', () => {
     board.forEach(row => row.fill(null));
     currentPlayer = 'red';
