@@ -32,9 +32,9 @@ Each member of our team has contributed unique games:
 ---
 
 ## 👥 Team Members
-1. **[Your Name]**: [Your Games or Role]
-2. **[Team Member 2's Name]**: [Their Games or Role]
-3. **[Team Member 3's Name]**: [Their Games or Role]
+1. **Jenna**: Made Memory, TicTacToe, Ping pong, 2048, Number Guesser, Connect Four
+2. **Taha**: [Their Games]
+3. **Luke**: [Their Games]
 
 ---
 
