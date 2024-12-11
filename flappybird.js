@@ -21,7 +21,7 @@ let birdY = 200;  // Bird's vertical position
 let birdVelocity = 0; // Bird's velocity
 let isFlapping = false;
 let isGameOver = false;
-let isPaused = true;  // To track if the game is paused
+let isPaused = false;  // To track if the game is paused
 let pipes = []; // List of pipes
 let score = 0;
 
@@ -54,20 +54,43 @@ function gameLoop() {
   // Move pipes
   pipes.forEach((pipe, index) => {
     pipe.x -= PIPE_SPEED;
-    document.querySelector(`#pipe-${index}-top`).style.left = pipe.x + "px";
-    document.querySelector(`#pipe-${index}-bottom`).style.left = pipe.x + "px";
+
+    // Check if the pipe DOM elements exist before trying to update their position
+    const topPipe = document.querySelector(`#pipe-${index}-top`);
+    const bottomPipe = document.querySelector(`#pipe-${index}-bottom`);
+
+    if (topPipe && bottomPipe) {
+      topPipe.style.left = pipe.x + "px";
+      bottomPipe.style.left = pipe.x + "px";
+    }
 
     // Check for collisions
     if (
       pipe.x <= 50 + BIRD_WIDTH &&
       pipe.x + PIPE_WIDTH >= 50 &&
-      (birdY <= pipe.topHeight || birdY + BIRD_HEIGHT >= pipe.bottomHeight)
+      (birdY <= pipe.topHeight && birdY + BIRD_HEIGHT >= pipe.bottomHeight)
     ) {
       gameOver();
     }
 
     // Remove off-screen pipes
     if (pipe.x + PIPE_WIDTH < 0) {
+      // Remove the pipe elements from the DOM
+      const topPipe = document.querySelector(`#pipe-${index}-top`);
+      const bottomPipe = document.querySelector(`#pipe-${index}-bottom`);
+      if (topPipe && bottomPipe) {
+        console.log(topPipe);
+        console.log(bottomPipe);
+        console.log(gameContainer.removeChild(topPipe));
+        console.log(gameContainer.removeChild(bottomPipe));
+        topPipe.innerHTML = "";
+        bottomPipe.innerHTML = "";
+        topPipe.remove();
+        bottomPipe.remove();
+        console.log(topPipe);
+      }
+
+      // Remove the pipe from the pipes array
       pipes.splice(index, 1);
       score++;
     }
@@ -86,6 +109,7 @@ function startGame() {
   isGameOver = false;
   isPaused = false;
   gameOverText.classList.add("hidden");
+  pauseMenu.classList.add("hidden");
   gameLoop();
 }
 
@@ -140,10 +164,6 @@ resumeButton.addEventListener("click", function () {
   gameLoop();
 });
 
-// Restart button click event
-restartButton.addEventListener("click", function () {
-  startGame();
-});
 
 // Game over function
 function gameOver() {
@@ -153,7 +173,5 @@ function gameOver() {
 
 // Start the game on page load
 window.onload = function () {
-  if(!isPaused){
-    startGame();
-  }
+  startGame();
 };
