@@ -1,10 +1,10 @@
 // Game settings
 const GRAVITY = 0.125;
-const FLAP_STRENGTH = -10;
+const FLAP_STRENGTH = -5;
 const PIPE_WIDTH = 60;
 const PIPE_SPACING = 200;
 const PIPE_GAP = 150;
-const PIPE_SPEED = 1;
+const PIPE_SPEED = 2;
 const BIRD_WIDTH = 40;
 const BIRD_HEIGHT = 40;
 
@@ -12,18 +12,22 @@ const BIRD_HEIGHT = 40;
 const bird = document.getElementById("bird");
 const gameContainer = document.getElementById("game-container");
 const gameOverText = document.getElementById("game-over");
+const pauseMenu = document.getElementById("pause-menu");
+const pauseButton = document.getElementById("pause-button");
+const resumeButton = document.getElementById("resume-button");
+const restartButton = document.getElementById("restart-button");
 
 let birdY = 200;  // Bird's vertical position
 let birdVelocity = 0; // Bird's velocity
 let isFlapping = false;
 let isGameOver = false;
+let isPaused = true;  // To track if the game is paused
 let pipes = []; // List of pipes
 let score = 0;
-let isPaused = true;
 
 // Game loop
 function gameLoop() {
-  if (isGameOver) return;
+  if (isGameOver || isPaused) return; // Stop game loop if paused or game over
 
   birdVelocity += GRAVITY;
   birdY += birdVelocity;
@@ -80,6 +84,7 @@ function startGame() {
   pipes = [];
   score = 0;
   isGameOver = false;
+  isPaused = false;
   gameOverText.classList.add("hidden");
   gameLoop();
 }
@@ -111,13 +116,33 @@ function createPipe() {
 
 // Handle bird flap
 document.addEventListener("keydown", function (e) {
-  if (e.key === " " && !isGameOver) {
+  if (e.key === " " && !isGameOver && !isPaused) {
     isFlapping = true;
   }
 
   if (e.key === "Enter" && isGameOver) {
     startGame();
   }
+});
+
+// Pause button click event
+pauseButton.addEventListener("click", function () {
+  if (!isGameOver) {
+    isPaused = true;
+    pauseMenu.classList.remove("hidden");
+  }
+});
+
+// Resume button click event
+resumeButton.addEventListener("click", function () {
+  isPaused = false;
+  pauseMenu.classList.add("hidden");
+  gameLoop();
+});
+
+// Restart button click event
+restartButton.addEventListener("click", function () {
+  startGame();
 });
 
 // Game over function
@@ -128,13 +153,7 @@ function gameOver() {
 
 // Start the game on page load
 window.onload = function () {
-  if(isPaused){
-    showPauseMeneu();
-  }else{
+  if(!isPaused){
     startGame();
   }
 };
-
-
-
-
