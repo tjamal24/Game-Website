@@ -59,6 +59,7 @@ Each member of our team has contributed unique games:
 ## Method 2:
 1. Open your internet browser
 2. Navigate to https://tjamal24.github.io/Game-Website/
+3. Explore and enjoy the games!
 ---
 
 
