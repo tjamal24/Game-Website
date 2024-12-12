@@ -22,6 +22,7 @@ body {
 
 /* Container Styling */
 .container {
+    align-self: center;
     width: 90%;
     max-width: 75rem;         /* Limit maximum width */
     margin-top: 1rem;         /* Reduced margin for compactness */
@@ -43,6 +44,10 @@ header h1 {
 header p {
     font-size: 1rem;
     color: #555;
+}
+
+.game-options{
+    align-self: center;
 }
 
 /* Game Board Styling (Memory Game) */
