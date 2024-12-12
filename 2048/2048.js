@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkForWin() {
         for (let i = 0; i < squares.length; i++) {
             if (squares[i].innerHTML == 2048) {
-                resultDisplay.innerHTML = 'You WIN';
+                alert('You WIN');
                 document.removeEventListener('keyup', control);
                 setTimeout(() => resetGame(), 3000);
             }
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (squares[i].innerHTML == 0) zeros++;
         }
         if (zeros === 0) {
-            resultDisplay.innerHTML = 'You LOSE';
+            alert('You LOSE'); // Display the pop-up message
             document.removeEventListener('keyup', control);
             setTimeout(resetGame, 3000);
         }
