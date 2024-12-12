@@ -98,9 +98,9 @@ function moveSnake(){
   //console.log(snake[0].x + "   " +  snake[0].y)
   snake.unshift(head);
 
-  const has_eaten_food = snake[0].x === food_x && snake[0].y === food_y;
+  const has_eaten_food = snake[0].x === food_x && snake[0].y === f10_y;
   if (has_eaten_food) {
-    score += 500;
+    score += 10;
     document.getElementById('score').textContent = score;
     if(score > 9990){
         victory = true;
