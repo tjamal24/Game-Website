@@ -3,12 +3,19 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
+  }  
+#score {
+    top: 0;
+    left: 0;
+    font-size: 140px;
+}
+
   /* Reset Button */
 #resetButton {
     background-color: #ff5722;
     color: white;
     border: none;
+    bottom: 0;
     padding: .5rem 1rem;
     cursor: pointer;
     border-radius: 0.5rem;
@@ -25,7 +32,6 @@
     align-self: center;
     margin-bottom: 2rem; /* Space between instructions and game board */
 }
-  
 
   /* Congratulations Message */
 .congrats-message {
