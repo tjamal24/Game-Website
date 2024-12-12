@@ -5,7 +5,7 @@ body {
 .container{
   display: flex;
   flex-direction: column;  /* Stack elements vertically */
-  align-items: center;      /* Center horizontally */
+  align-items: left;      /* Center horizontally */
   justify-content: space-between;  /* Space between canvas and buttons */
   height: 100%;             /* Take up full height */
   width: 60vw;  
@@ -29,10 +29,12 @@ body {
     color: white;
     border: none;
     bottom: 0;
+    width: 10vw;
     padding: .5rem 1rem;
     cursor: pointer;
     border-radius: 0.5rem;
     font-size: 1rem;
+    align-self: left;
     transition: background-color 0.3s ease;
 }
   

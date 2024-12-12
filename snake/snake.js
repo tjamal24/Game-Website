@@ -100,7 +100,7 @@ function moveSnake(){
 
   const has_eaten_food = snake[0].x === food_x && snake[0].y === food_y;
   if (has_eaten_food) {
-    score += 10;
+    score += 500;
     document.getElementById('score').textContent = score;
     if(score > 9990){
         victory = true;
