@@ -23,7 +23,6 @@ const chipsElem = document.getElementById('chips');
 // Event Listeners
 hitBtn.addEventListener('click', hit);
 standBtn.addEventListener('click', stand);
-restartBtn.addEventListener('click', restart);
 wagerBtn.addEventListener('click', makeBet);
 
 function initializeChips(){
@@ -95,47 +94,51 @@ function findValue(card){
 function renderCards(hand, container) {
     container.innerHTML = '';
     for (let card of hand) {
-        const box = document.createElement('div');
-        box.classList.add('box');
-        suit = findSuit(card);
-        cardValue = card[0];
-        if(cardValue == 11){
-            cardValue = 'J';
-        }else if(cardValue == 12){
-            cardValue = 'Q';
-        }else if(cardValue == 13){
-            cardValue = 'K';
-        }else if(cardValue == 14){
-            cardValue = 'A';
-        }
-        if(suit === 'diamond'){
-            suit = 'D';
-        }else if(suit === 'heart'){
-            suit = 'H';
-        }else if(suit === 'club'){
-            suit = 'C';
-        }else if(suit === 'spade'){
-            suit = 'S';
-        }
-        
-        // Create corner elements and append them to the box
-        const corners = [
-            { className: 'top-left', text: `${cardValue}${suit}` },
-            { className: 'top-right', text: `${suit}${cardValue}` },
-            { className: 'bottom-left', text: `${cardValue}${suit}` },
-            { className: 'bottom-right', text: `${suit}${cardValue}` }
-        ];
-        
-        corners.forEach(corner => {
-            const cornerElement = document.createElement('div');
-            cornerElement.classList.add('corner', corner.className);
-            cornerElement.textContent = corner.text;
-            box.appendChild(cornerElement);
-        });
+        //this detects the dealers hidden card and displays a face down card
+        if(card[0] === 0 && card[1] === 0){
+            
+        }else{
+            const box = document.createElement('div');
+            box.classList.add('card');
+            suit = findSuit(card);
+            cardValue = card[0];
+            if(cardValue == 11){
+                cardValue = 'J';
+            }else if(cardValue == 12){
+                cardValue = 'Q';
+            }else if(cardValue == 13){
+                cardValue = 'K';
+            }else if(cardValue == 14){
+                cardValue = 'A';
+            }
+            if(suit === 'diamond'){
+                suit = 'D';
+            }else if(suit === 'heart'){
+                suit = 'H';
+            }else if(suit === 'club'){
+                suit = 'C';
+            }else if(suit === 'spade'){
+                suit = 'S';
+            }
+            
+            // Create corner elements and append them to the box
+            const corners = [
+                { className: 'top-left', text: `${cardValue}${suit}` },
+                { className: 'top-right', text: `${suit}${cardValue}` },
+                { className: 'bottom-left', text: `${cardValue}${suit}` },
+                { className: 'bottom-right', text: `${suit}${cardValue}` }
+            ];
+            
+            corners.forEach(corner => {
+                const cornerElement = document.createElement('div');
+                cornerElement.classList.add('corner', corner.className);
+                cornerElement.textContent = corner.text;
+                box.appendChild(cornerElement);
+            });
 
-        // Append the box to the container element
-        container.appendChild(box);
-
+            // Append the box to the container element
+            container.appendChild(box);
+        }
     }
   }
 
@@ -179,18 +182,18 @@ function stand() {
     }
 }
 
-  // End the game
+  // End the hand
 function endHand(message) {
     messageElem.textContent = message + ' Place another bet to play again!';
     hitBtn.disabled = true;
     standBtn.disabled = true;
-    chipsElem.textContent = chips;
+    console.log('chips: ' + chips);
+    console.log('chepsElem: ' + chipsElem);
+    initializeChips();
+    console.log('chips: ' + chips);
+    console.log('chepsElem: ' + chipsElem);
 }
 
-  // Restart game button action
-function restart() {
-  startHand();
-}
 
 function makeBet(){
     requestIsValid = true;
@@ -210,7 +213,7 @@ function makeBet(){
         requestIsValid = false;
     }
     if(requestIsValid){
-        currWager = parseInt(wagerBtn.value);
+        currWager = request;
         startHand();
     }
     wagerInput.value = 0;
@@ -229,7 +232,7 @@ function startHand() {
     }
     playerHand = [dealCard(), dealCard()];
     dealerHand = [dealCard(), dealCard()];
-    visibleDealerHand = [dealerHand[0]];
+    visibleDealerHand = [dealerHand[0], [0, 0]];
     playerPoints = getHandPoints(playerHand);
     dealerPoints = getHandPoints(visibleDealerHand);
 
@@ -258,5 +261,7 @@ function startHand() {
 window.onload = function () {
     createDeck();
     initializeChips();
+    hitBtn.disabled = true;
+    standBtn.disabled = true;
     messageElem.textContent = 'Place a bet to start!';
 };
