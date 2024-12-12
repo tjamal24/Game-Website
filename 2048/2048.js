@@ -2,9 +2,30 @@ document.addEventListener('DOMContentLoaded', () =>  {
     const gridDisplay = document.querySelector('.grid')
     const scoreDisplay = document.getElementById('score')
     const resultDisplay = document.getElementById('result')
+    const upButton = document.getElementById('up');
+    const downButton = document.getElementById('down');
+    const leftButton = document.getElementById('left');
+    const rightButton = document.getElementById('right');
     let squares = []
     const width = 4
     let score = 0
+    // Event listeners for the buttons
+    upButton.addEventListener('click', function() {
+      keyUp();  // Call the moveUp function when the up button is pressed
+    });
+
+    downButton.addEventListener('click', function() {
+      keyDown();  // Call the moveDown function when the down button is pressed
+    });
+
+    leftButton.addEventListener('click', function() {
+      keyLeft();  // Call the moveLeft function when the left button is pressed
+    });
+
+    rightButton.addEventListener('click', function() {
+      keyRight();  // Call the moveRight function when the right button is pressed
+    });
+
   
     //create the playing board
     function createBoard() {

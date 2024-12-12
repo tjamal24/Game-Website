@@ -22,10 +22,21 @@
 
   <button id="resetButton" class="resetButton">Reset Game</button>
   
+  <div id="gamepad">
+    <button id="up" class="arrow-btn">&#8593;</button> <!-- Up Arrow -->
+    <div>
+      <button id="left" class="arrow-btn">&#8592;</button> <!-- Left Arrow -->
+      <button id="right" class="arrow-btn">&#8594;</button> <!-- Right Arrow -->
+    </div>
+    <button id="down" class="arrow-btn">&#8595;</button> <!-- Down Arrow -->
+  </div>
+  
   <div id="score">0 </div>
   <div class="congrats-message" id="congratsMessage"></div>
   <!--canvas to draw elements using js--> 
   <canvas id="gameCanvas" width="400" height="400"><canvas>
+
+  
 
   <script src="snake.js"></script>
 </body>

@@ -8,6 +8,28 @@ var restartBtn = document.getElementById("restart-btn");
 var animationId;
 var gameRunning = false;
 
+
+const upButtonLeft = document.getElementById('up-left');
+const downButtonLeft = document.getElementById('down-left');
+const upButtonRight = document.getElementById('up-right');
+const downButtonRight = document.getElementById('down-right');
+
+let isHolding = false;
+// Event listeners for the buttons
+upButtonLeft.addEventListener('mousedown', function() {
+  moveLeftPaddleUp();  // Call the moveUp function when the up button is pressed
+});
+
+downButtonLeft.addEventListener('mousedown', function() {
+  moveLeftPaddleDown();  // Call the moveDown function when the down button is pressed
+});
+upButtonRight.addEventListener('mousedown', function() {
+  moveRightPaddleUp();  // Call the moveDown function when the down button is pressed
+});
+downButtonRight.addEventListener('mousedown', function() {
+  moveRightPaddleDown();
+});
+
 startBtn.addEventListener("click", function() {
   if (!gameRunning) { // Only start the game if gameRunning is false
     gameRunning = true; // Set gameRunning to true when the game starts
@@ -32,15 +54,15 @@ addEventListener("load", (event) => {
 var ballRadius = 10;
 var ballX = canvas.width / 2;
 var ballY = canvas.height / 2;
-var ballSpeedX = 5;
-var ballSpeedY = 5;
+var ballSpeedX = 1;
+var ballSpeedY = 1;
 
 // Define paddle properties
 var paddleHeight = 80;
 var paddleWidth = 10;
 var leftPaddleY = canvas.height / 2 - paddleHeight / 2;
 var rightPaddleY = canvas.height / 2 - paddleHeight / 2;
-var paddleSpeed = 10;
+var paddleSpeed = 5;
 
 // Define score properties
 var leftPlayerScore = 0;
@@ -81,22 +103,38 @@ function keyUpHandler(e) {
     sPressed = false;
   }
 }
-
+function moveRightPaddleUp(){
+  if(rightPaddleY > 0){
+    rightPaddleY -= paddleSpeed;
+  }
+}function moveRightPaddleDown(){
+  if(rightPaddleY + paddleHeight < canvas.height){
+    rightPaddleY += paddleSpeed;
+  }
+}function moveLeftPaddleUp(){
+  if(leftPaddleY > 0){
+    leftPaddleY -= paddleSpeed;
+  }
+}function moveLeftPaddleDown(){
+  if(leftPaddleY + paddleHeight < canvas.height){
+    leftPaddleY += paddleSpeed;
+  }
+}
 // Update game state
 function update() {
   if (!gameRunning) return; // Stop updating if the game is over
   
   // Move paddles
   if (upPressed && rightPaddleY > 0) {
-    rightPaddleY -= paddleSpeed;
+    moveRightPaddleUp();
   } else if (downPressed && rightPaddleY + paddleHeight < canvas.height) {
-    rightPaddleY += paddleSpeed;
+    moveRightPaddleDown();
   }
 
   if (wPressed && leftPaddleY > 0) {
-    leftPaddleY -= paddleSpeed;
+    moveLeftPaddleUp();
   } else if (sPressed && leftPaddleY + paddleHeight < canvas.height) {
-    leftPaddleY += paddleSpeed;
+    moveLeftPaddleDown();
   }
 
   // Move ball
