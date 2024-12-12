@@ -16,14 +16,16 @@ Each member of our team has contributed unique games:
 
 1. **Memory Cards**: Match pairs of cards to win!
 2. **Tic Tac Toe**: Challenge your friends.
-3. **Tetris**: Classic block-stacking game with a modern twist.
-4. **2048**: Match tiles to try and get the 2048 tile.
-5. **Connect Four**: Two person game, try and connect four discs!
+3. **2048**: Match tiles to try and get the 2048 tile.
+4. **Connect Four**: Two person game, try and connect four discs!
 6. **Ping Pong**: Try and score against your friends.
-7. **Number Guesser**: Try and guess the secret number.
-8. **History Quiz**: For those who say they know history!
-9. **Math Quiz**: For the people who like a challenge!
-10. **Food and Drinks Quiz**: See if you are actually a foodie or not.
+6. **Number Guesser**: Try and guess the secret number.
+7. **History Quiz**: For those who say they know history!
+8. **Math Quiz**: For the people who like a challenge!
+9. **Food and Drinks Quiz**: See if you are actually a foodie or not.
+10. **Black Jack**: Become a gazzilionare!
+11. **Lights out**: Fun little puzze to waste an afternoon with.
+12. **Snake**: For those trying to master a classic.
 
 ---
 
@@ -42,19 +44,23 @@ Each member of our team has contributed unique games:
 ## 👥 Team Members
 1. **Jenna**: Made Memory, TicTacToe, Ping pong, 2048, Number Guesser, Connect Four
 2. **Taha**: History Quiz, Math Quiz, Food and Drinks Quiz
-3. **Luke**: [Their Games]
+3. **Luke**: Black Jack, Lights out, Snake
 
 ---
 
 ## 🌟 How to Run the Project
+## Method 1:
 1. Clone this repository:
    ```bash
    git clone https://github.com/your-repo-link.git
    ```
 2. Open `index.html` in your browser.
 3. Explore and enjoy the games!
-
+## Method 2:
+1. Open your internet browser
+2. Navigate to [Put link here when website is live]
 ---
+
 
 ## 🛠️ Future Improvements
 - Add more games.
