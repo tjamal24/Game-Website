@@ -46,6 +46,27 @@ header p {
     color: #555;
 }
 
+button {
+    width: 10vw;        /* Set width to 10% of the viewport width */
+    height: 3vh;        /* Set height to 3% of the viewport height */
+    border-radius: 1.5rem; /* Makes the button rounded (you can adjust this value for more or less roundness) */
+    border: none;       /* Remove default button border */
+
+    background-color: #ff5722;    
+    color: white;       /* White text color */
+    font-size: 1.2rem;  /* Adjust the font size */
+    cursor: pointer;   /* Changes the cursor to a pointer when hovering over the button */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    display: inline-flex;  /* Flexbox layout for centering the text inside the button */
+    justify-content: center;  /* Center text horizontally */
+    align-items: center;  /* Center text vertically */
+  }
+  
+  /* Add hover effect */
+  button:hover {
+    background-color: #45a049;  /* Darker green when hovering */
+  }
+
 .game-options{
     align-self: center;
 }
