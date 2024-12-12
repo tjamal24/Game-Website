@@ -18,9 +18,15 @@ body {
     transform: translate(-50%, -50%);
   }  
 #score {
-    top: 0;
+  position: absolute;
+    bottom: 0;
     left: 0;
     font-size: 13rem;
+}
+.score-header {
+  position: absolute;
+  bottom: 13rem;
+  left: 0;
 }
 
   /* Reset Button */
@@ -45,6 +51,7 @@ body {
     border-radius: 1rem;
     box-shadow: 0 .35rem 1rem rgba(0, 0, 0, 0.3); /* Drop shadow */
     width: 90vw;
+    height: 7vh;
     align-items: center;
     align-self: right;
     margin-bottom: 2rem; /* Space between instructions and game board */
@@ -75,8 +82,7 @@ body {
 #gamepad {
   position: fixed; /* Fix the gamepad to the right side */
   right: 0;  /* on the right edge */
-  top: 50%;     /* Center the gamepad vertically */
-  transform: translateY(-50%); /* Ensure it is exactly centered vertically */
+  bottom: 0;     /* Center the gamepad vertically */
   display: flex;
   flex-direction: column;
   align-items: center;

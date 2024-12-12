@@ -15,7 +15,8 @@ body {
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 .4rem 1rem rgba(0, 0, 0, 0.3); /* Drop shadow */
-    width: 30rem;
+    width: 30vw;
+    height: 20vh;
     align-self: center;
     margin-bottom: 2rem; /* Space between instructions and game board */
   }
@@ -33,13 +34,13 @@ body {
   #game-board {
     align-self: center;
     display: grid;
-    grid-template-columns: repeat(5, 5rem);
+    grid-template-columns: repeat(5, 5vw);
     grid-gap: .5rem;
   }
   
   .light {
-    width: 5rem;
-    height: 5rem;
+    width: 5vw;
+    height: 5vw;
     background-color: #ffeb3b; /* Light on color */
     border: .1rem solid #ccc;
     border-radius: .5rem;
