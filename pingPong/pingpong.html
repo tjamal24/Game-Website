@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ping Pong Game</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="pingpong.css">
+
+</head>
+<body>
+  <!-- Main Game Container -->
+  <div class="container">
+    <h1>Ping Pong</h1> <!-- Title above the game -->
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <div class="button">
+      <button id="start-btn" class="btn">Start</button>
+      <button id="pause-btn" class="btn">Pause</button>
+      <button id="restart-btn" class="btn">Restart</button>
+    </div>
+  </div>
+
+  <!-- Game Controls Information -->
+  <p class="text-center mt-3">
+    Controls: Player Left (W and S) | Player Right (↑ and ↓)
+  </p>
+
+  <!-- Modal for Messages -->
+  <div class="modal fade" id="message-modal" tabindex="-1" role="dialog" aria-labelledby="message-modal-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h5 id="message"></h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="message-modal-close" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="pingpong.js"></script>
+</body>
+</html>

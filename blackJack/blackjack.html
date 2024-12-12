@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lights Out Puzzle</title>
+  <link rel="stylesheet" href="blackjack.css">
+</head>
+<body>
+  <!-- Instructions Div -->
+  <div id="instructions" class="instructions">
+    <h2>How to Play</h2>
+    <p>
+        Get as close to 21 as you can without going over, if you go over,
+        you lose. Aces count as either 1, or 11, whatever's better for you.
+        If your total is bigger than the dealers, you win. to draw another card, 
+        press the hit button. to stop drawing and see what the dealer gets, press
+        stand. If the dealers totalis less than 16 the dealer will hit. 
+    </p>
+    <p>
+      To start the game, make a bet.
+    </p>
+    <p>
+      Now go become a GAZILLIONARE!
+    </p>
+  </div>
+  
+
+    <div id="container"></div>
+    <div class="game-container">
+        <h1 class="center-text">Blackjack</h1>
+        <div id="player-area">
+            <h2>Player's Cards:</h2>
+            <div id="player-cards" class="card-container"></div>
+        </div>
+    
+        <div class="center-text" id="game-info">
+          <p>Current chips: <span id="chips">0</span></p>
+          <input type="number" id="wagerInput" min="1" placeholder="How much would you like to wager?" />
+          <button id="wager-btn">Submit Bet</button>
+          <p>Player's Score: <div id="player-points">0</div></p>
+          <p>Dealer's Score: <div id="dealer-points">0</div></p>
+        </div>
+    
+        <div id="dealer-area">
+            <h2>Dealer's Cards:</h2>
+            <div id="dealer-cards" class="card-container"></div>
+        </div>
+    
+        <div id="buttons">
+          <button id="hit-btn">Hit</button>
+          <button id="stand-btn">Stand</button>
+          <button id="restart-btn" style="display: none;">Restart Game</button>
+        </div>
+    
+        <div id="message" class="message"></div>
+        <script src="blackjack.js"> </script>
+    </div>
+    
+</body>
+</html>

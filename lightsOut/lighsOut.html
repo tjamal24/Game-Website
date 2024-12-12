@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lights Out Puzzle</title>
+  <link rel="stylesheet" href="lighsOut.css">
+</head>
+<body>
+  <!-- Instructions Div -->
+  <div id="instructions" class="instructions">
+    <h2>How to Play</h2>
+    <p>
+      The goal of the game is to turn off all the lights on the grid. 
+      Each square represents a light that can either be on (yellow) or off (dark).
+    </p>
+    <p>
+      Whenever you click a square, the light you clicked turns off, along with the adjacent lights (above, below, left, and right).
+    </p>
+    <p>
+      Keep clicking until all the lights are off!
+    </p>
+  </div>
+  
+  <!-- Game Board -->
+  <div id="game-board">
+    <!-- The grid will be populated by JavaScript -->
+  </div id="score"></div>
+  <button id="resetButton" class="resetButton">Reset Game</button>
+  
+  <div class="congrats-message" id="congratsMessage"></div>
+  <script src="lightsOut.js"></script>
+</body>
+</html>
