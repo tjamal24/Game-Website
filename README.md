@@ -21,6 +21,9 @@ Each member of our team has contributed unique games:
 5. **Connect Four**: Two person game, try and connect four discs!
 6. **Ping Pong**: Try and score against your friends.
 7. **Number Guesser**: Try and guess the secret number.
+8. **History Quiz**: For those who say they know history!
+9. **Math Quiz**: For the people who like a challenge!
+10. **Food and Drinks Quiz**: See if you are actually a foodie or not.
 
 ---
 
@@ -38,7 +41,7 @@ Each member of our team has contributed unique games:
 
 ## 👥 Team Members
 1. **Jenna**: Made Memory, TicTacToe, Ping pong, 2048, Number Guesser, Connect Four
-2. **Taha**: [Their Games]
+2. **Taha**: History Quiz, Math Quiz, Food and Drinks Quiz
 3. **Luke**: [Their Games]
 
 ---
